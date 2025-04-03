@@ -1,62 +1,62 @@
 const db = require('../database/connection'); 
 
 module.exports = {
-    async listarUsuarios (request, response) {
+    async listarProdutos (request, response) {
         try {
             return response.status(200).json({
                 sucesso: true, 
-                mensagem: 'Lista de usuários.', 
+                mensagem: 'Lista de produtos.', 
                 dados: null
             });
         } catch (error) {
             return response.status(500).json({
                 sucesso: false, 
-                mensagem: 'Erro na listagem de usuários.', 
+                mensagem: 'Erro na listagem de produtos.', 
                 dados: error.message
             });
         }
     },
-    async cadastrarUsuarios (request, response) {
+    async cadastrarProdutos (request, response) {
         try {
             return response.status(200).json({
                 sucesso: true, 
-                mensagem: 'Cadastro de usuários.', 
+                mensagem: 'Cadastro de produtos.', 
                 dados: null
             });
         } catch (error) {
             return response.status(500).json({
                 sucesso: false, 
-                mensagem: 'Erro na listagem de usuários.', 
+                mensagem: 'Erro na listagem de produtos.', 
                 dados: error.message
             });
         }
     },
-    async editarUsuarios (request, response) {
+    async editarProdutos (request, response) {
         try {
             return response.status(200).json({
                 sucesso: true, 
-                mensagem: 'Editar usuário.', 
+                mensagem: 'Editar produto.', 
                 dados: null
             });
         } catch (error) {
             return response.status(500).json({
                 sucesso: false, 
-                mensagem: 'Erro na listagem de usuários.', 
+                mensagem: 'Erro na listagem de produtos.', 
                 dados: error.message
             });
         }
     },
-    async apagarUsuarios (request, response) {
+    async apagarProdutos (request, response) {
         try {
             return response.status(200).json({
                 sucesso: true, 
-                mensagem: 'Apagar usuário.', 
+                mensagem: 'Apagar produto.', 
                 dados: null
             });
         } catch (error) {
             return response.status(500).json({
                 sucesso: false, 
-                mensagem: 'Erro na listagem de usuários.', 
+                mensagem: 'Erro na listagem de produtos.', 
                 dados: error.message
             });
         }

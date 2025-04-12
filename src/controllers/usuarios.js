@@ -4,10 +4,12 @@ module.exports = {
     async listarUsuarios (request, response) {
         try {
 
-            const sql = `SELECT 
-                usu_id, usu_nome, usu_email, usu_cpf, usu_dt_nasc, 
-                usu_senha, usu_tipo, usu_ativo = 1 AS usu_ativo 
-                FROM usuarios;`;
+            const sql = `
+                SELECT 
+                    usu_id, usu_nome, usu_email, usu_cpf, usu_dt_nasc, 
+                    usu_senha, usu_tipo, usu_ativo = 1 AS usu_ativo 
+                FROM usuarios;
+            `;
 
             const [row] = await db.query(sql);      
             const nItens = row.length;      

@@ -30,15 +30,37 @@ module.exports = {
     },
     async cadastrarUsuarios (request, response) {
         try {
+
+            const { nome, email, senha, tipo, dataNascimento, cpf } = request.body;
+            const ativo = 1;
+
+            const sql = `
+                INSERT INTO usuarios 
+                    (usu_nome, usu_email, usu_senha, 
+                    usu_tipo, usu_ativo, usu_dt_nasc, usu_cpf) 
+                VALUES (?, ?, ?, ?, ?, ?, ?);
+            `
+
+            const values = [nome, email, senha, tipo, ativo, dataNascimento, cpf]; 
+
+            const [result] = await db.query(sql, values); 
+
+            const dados = {
+                id: result.insertId, 
+                nome, 
+                email, 
+                tipo
+            };
+
             return response.status(200).json({
                 sucesso: true, 
-                mensagem: 'Cadastro de usuários.', 
-                dados: null
+                mensagem: 'Cadastro de usuários efetuado com sucesso.', 
+                dados
             });
         } catch (error) {
             return response.status(500).json({
                 sucesso: false, 
-                mensagem: 'Erro na listagem de usuários.', 
+                mensagem: 'Erro no cadastro de usuários.', 
                 dados: error.message
             });
         }
@@ -74,3 +96,4 @@ module.exports = {
         }
     },
 }
+

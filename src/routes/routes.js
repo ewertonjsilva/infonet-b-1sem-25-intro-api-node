@@ -1,17 +1,10 @@
 const express = require('express'); 
 const router = express.Router(); 
- 
-const UsuariosController = require('../controllers/usuarios');  
-const ProdutosController = require('../controllers/produtos');
 
-router.get('/usuarios', UsuariosController.listarUsuarios); 
-router.post('/usuarios', UsuariosController.cadastrarUsuarios); 
-router.patch('/usuarios', UsuariosController.editarUsuarios); 
-router.delete('/usuarios', UsuariosController.apagarUsuarios); 
+import RotasEwerton from './routes-ewerton';
+import RotasJose from './routes-jose';
 
-router.get('/produtos', ProdutosController.listarProdutos); 
-router.post('/produtos', ProdutosController.cadastrarProdutos); 
-router.patch('/produtos', ProdutosController.editarProdutos); 
-router.delete('/produtos', ProdutosController.apagarProdutos); 
+router.use('/', RotasEwerton);
+router.use('/', RotasJose);
 
 module.exports = router;
